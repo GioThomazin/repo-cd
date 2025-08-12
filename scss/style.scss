@@ -285,3 +285,60 @@ p,
     padding: 0;
     list-style-type: none;
 }
+
+/* --- GALERIA: regras para uniformizar todas as imagens --- */
+/* Use no HTML: 
+   <div class="col-6 col-md-4 col-lg-3">
+     <div class="galeria-item">
+       <img src="..." alt="">
+     </div>
+   </div>
+*/
+
+$gallery-img-height: 260px !default;
+
+.galeria-item {
+  height: $gallery-img-height;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(31,31,46,0.06);
+  display: block;
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+}
+
+/* alternativa: usar aspect-ratio para blocos quadrados (se quiser) */
+.galeria-item--square {
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 8px;
+  img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+}
+
+/* ajustes responsivos */
+@media (max-width: 767.98px) {
+  .galeria-item {
+    height: 160px;
+  }
+}
+
+/* dica: se algum reset global estiver forçando `img { height: auto !important; }`
+   você pode usar a regra abaixo (aplicar somente se necessário) */
+.galeria-item img {
+  height: 100% !important;
+  width: 100% !important;
+  object-fit: cover;
+}
+
+/* fim das regras de galeria */
